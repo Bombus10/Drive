@@ -105,7 +105,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide false
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
-gsettings show org.gnome.shell.extensions.dash-to-dock multi-monitor true
+gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor true
 
 cur_git_user=$(git config --global user.name)
 
