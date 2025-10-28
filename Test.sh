@@ -115,6 +115,23 @@ else
   done
 fi
 
+if ! find /etc/apt/sources.list.d/ -name 'vscode.sources'; then
+    if whiptail --yesno "Are you sure?" 10 100; then
+        echo 'updating your system'
+        sudo apt -y update && sudo apt -y upgrade
+        echo 'updating snap packages'
+        sudo snap refresh
+    else
+        echo "No Update performed"
+    fi
+else
+    echo "echo 'updating your system"
+    sudo apt -y update && sudo apt -y upgrade
+    echo 'updating snap packages'
+    sudo snap refresh
+fi
+
+
 CHOICES2=$(whiptail --fb --separate-output --checklist "Easy Defaults" 20 78 10 \
     "Format_Taskbar" "Has Opera, Firefox, Bash Terminal, Settings, VSCode, and File Explorer" ON \
     "Dark_Mode" "" ON \
