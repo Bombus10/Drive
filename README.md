@@ -1,22 +1,19 @@
-## This updates your debian based computer with all the things needed for the Computer Science class
+# Xander's CompSci_setup Script
+This script will update your debian based computer with all the things needed for the Harmony Computer Science class!
 
-1) all you need to do is make "update_script.sh" executable (ex: chmod +x update_script.sh)
-2) then run the file (ex: ./update_script.sh)
-3) put in your password, and then it should be all done!
-Thank you for using Xanders Update Drive
+## Script Usage
+1) Make "CompSci_setup.sh" executable `chmod +x CompSci_setup.sh`
+2) Execute the script `./CompSci_setup.sh`
+3) Make the selections you want at the prompts
 
-## Custom Hot Corners Guide
+### Enabling Custom Hot Corners
+1) Open the `Extension Manager` application
+2) Click on the "Browse" tab
+3) Search for and install "Custom Hot Corners-Extended"
+4) Click back on the "Installed" tab and select the gear icon next to "Custom Hot Corners-Extended"
+5) To make the "Overview-App Grid" appear when you move your mouse to the lower right corner of the screen:
+    - Click button for lower right of screen
+    - Under "Hot Corner" select: Core Actions -> `Show Overview-App Grid`
 
-1) after the drive is ran, go to the app grid (bottom right of the screen)
-2) run "Extension Manager"
-3) Click Browse
-4) search "Custom Hot Corners - Extended"
-5) Click install and confirm the installation
-6) In the top of the manager go back to installed extensions and enable Custom Hot Corners if its not already
-7) Go to the gear next to the enable switch and set it up to your liking
-
-## Setup Shellcheck in Vscode
-
-1) Open up VSCode (located on your taskbar)
-2) In the side column labeled extensions search for shellcheck
-3) Install the one with the icon of a magnifying glass on a seashell
+### VSCode Extensions
+- ShellCheck
