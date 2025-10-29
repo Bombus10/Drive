@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC1090
+# shellcheck disable=SC2162
 
 PACKAGE_LIST=$(whiptail --fb --separate-output --checklist "Install Packages" 30 100 20\
     "opera" "Opera browser (snap package)" ON \
@@ -16,6 +18,7 @@ PACKAGE_LIST=$(whiptail --fb --separate-output --checklist "Install Packages" 30
 
 if [[ -n "$PACKAGE_LIST" ]]; then
 # Update all packages
+    echo -e "\n#### Updating existing packages ####"
     sudo apt -y update && sudo apt -y upgrade
     sudo snap refresh
     
@@ -40,7 +43,6 @@ if [[ -n "$PACKAGE_LIST" ]]; then
                         export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
                         export LESS=' -cR '
 EOF
-                        # shellcheck disable=SC1090
                         source ~/.bashrc
                         fi
                         ;;
@@ -66,7 +68,7 @@ sudo apt -y autoremove
 fi
 
 
-TWEAK_LIST=$(whiptail --fb --separate-output --checklist "User Interface Tweaks" 30 100 20 \
+TWEAK_LIST=$(whiptail --fb --separate-output --checklist "User Interface Tweaks" 30 110 20 \
     "Pin-Apps" "Pin favorite-apps to dock: Opera, Firefox, Terminal, Settings, VSCode, Files" ON \
     "smartmontools" "Control and monitor storage systems using S.M.A.R.T." ON \
     "Dark-Mode" "Set color scheme to prefer-dark" ON \
@@ -99,4 +101,4 @@ if [[ -n "$TWEAK_LIST" ]]; then
     done
 fi
 
-echo "thank you for using Xander's update CompSci script!" 
+echo "Thank you for using Xander's CompSci_setup script!" 
