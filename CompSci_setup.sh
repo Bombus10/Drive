@@ -13,6 +13,7 @@ PACKAGE_LIST=$(whiptail --fb --separate-output --checklist "Install Packages" 30
     "curl" "Command line tool for transferring data with URL syntax " ON \
     "ufw" "Enable firewall" ON \
     "source-highlight" "Allows syntax highlighting in less" ON \
+    "Steam" "Games engine" Off \
     3>&1 1>&2 2>&3)
 
 
@@ -25,7 +26,7 @@ if [[ -n "$PACKAGE_LIST" ]]; then
     for select_package in $PACKAGE_LIST; do
         case "$select_package" in
             # Install Snap Packages
-            opera|code)
+            opera|code|steam)
                 echo -e "\n#### Installing $select_package (snap package) ####"
                 sudo snap install "$select_package"
                 ;;
