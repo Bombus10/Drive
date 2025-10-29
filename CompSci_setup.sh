@@ -13,7 +13,9 @@ PACKAGE_LIST=$(whiptail --fb --separate-output --checklist "Install Packages" 30
     "curl" "Command line tool for transferring data with URL syntax " ON \
     "ufw" "Enable firewall" ON \
     "source-highlight" "Allows syntax highlighting in less" ON \
-    "Steam" "Games engine" Off \
+    "clang-tidy" "C/C++ linter tool" ON \
+    "python3-venv" "Python virtual environment module for PlatformIO" ON \
+    "steam" "Games engine" OFF \
     3>&1 1>&2 2>&3)
 
 
@@ -68,6 +70,24 @@ EOF
 sudo apt -y autoremove
 fi
 
+VSCODE_EXTENSION_LIST=$(whiptail --fb --separate-output --checklist "User Interface Tweaks" 35 100 20 \
+    "ms-vscode.cpptools-extension-pack" "C and C++ coding language extension for VSCode" ON \
+    "platformio.platformio-ide" "PlatformIO IDE extension for VSCode" ON \
+    "timonwong.shellcheck" "ShellCheck extension for VSCode" ON \
+    "CS128.cs128-clang-tidy" "Clang-Tidy extension for VSCode" ON \
+    3>&1 1>&2 2>&3)
+
+if [[ -n "$VSCODE_EXTENSION_LIST" ]]; then
+    for select_extension in $VSCODE_EXTENSION_LIST; do
+        case "$select_extension" in
+            # Install Extension
+            *)
+                echo -e "\n#### Installing $select_extension ####"
+                code --install-extension "$select_extension"
+            ;;
+        esac
+    done
+fi
 
 TWEAK_LIST=$(whiptail --fb --separate-output --checklist "User Interface Tweaks" 30 110 20 \
     "Pin-Apps" "Pin favorite-apps to dock: Opera, Firefox, Terminal, Settings, VSCode, Files" ON \
