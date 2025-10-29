@@ -100,6 +100,7 @@ TWEAK_LIST=$(whiptail --fb --separate-output --checklist "User Interface Tweaks"
 
 if [[ -n "$TWEAK_LIST" ]]; then
     for select_tweak in $TWEAK_LIST; do
+        echo -e "\n#### Enabling $select_tweak ####"
         case "$select_tweak" in
             "Pin-Apps")
             gsettings set org.gnome.shell favorite-apps "['opera_opera.desktop', 'firefox_firefox.desktop, 'org.gnome.Terminal.desktop', 'org.gnome.Settings.desktop', 'code.desktop', 'org.gnome.Nautilus.desktop']"
